@@ -1,4 +1,4 @@
-using LearningAnalytics.Service.Data;
+using LearningAnalytics.Service.Common.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

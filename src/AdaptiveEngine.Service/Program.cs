@@ -1,4 +1,4 @@
-using LearningAnalytics.Service.Data;
+using LearningAnalytics.Service.Common.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // MySQL Configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AdaptativeDbContext>(options =>
+builder.Services.AddDbContext<AnalyticsDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
