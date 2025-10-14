@@ -1,0 +1,6 @@
+@CompetencyMapping.Service_HostAddress = http://localhost:5281
+
+GET {{CompetencyMapping.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

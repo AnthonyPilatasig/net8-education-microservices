@@ -1,0 +1,6 @@
+@LearningAnalytics.Service_HostAddress = http://localhost:5177
+
+GET {{LearningAnalytics.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
