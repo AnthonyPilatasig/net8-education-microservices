@@ -1,4 +1,4 @@
-﻿using LearningAnalytics.Service.Common.Core.Wrapper;
+﻿using ContentPersonalization.Service.Common.Core.Wrapper;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 using System.ComponentModel.DataAnnotations;
