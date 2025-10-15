@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ContentPersonalization.Service.Setup
+namespace CompetencyMapping.Service.Setup
 {
     public static class InfrastructureSetup
     {
