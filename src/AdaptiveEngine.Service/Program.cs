@@ -1,4 +1,4 @@
-using LearningAnalytics.Service.Common.Core.Persistence;
+using AdaptiveEngine.Service.Common.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // MySQL Configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AnalyticsDbContext>(options =>
+builder.Services.AddDbContext<AdaptiveEngineDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
@@ -28,7 +28,7 @@ app.MapControllers();
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AnalyticsDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<AdaptiveEngineDbContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 

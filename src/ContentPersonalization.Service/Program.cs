@@ -1,4 +1,4 @@
-using LearningAnalytics.Service.Data;
+using ContentPersonalization.Service.Common.Core.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +28,7 @@ app.MapControllers();
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AnalyticsDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ContentDbContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 

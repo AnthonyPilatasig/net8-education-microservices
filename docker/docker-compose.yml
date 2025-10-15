@@ -71,12 +71,25 @@ services:
       mysql:
         condition: service_healthy
 
+# ==================== MICROSERVICIO BASE(UNIVERSIDAD) ====================
+  education-platform:
+    build:
+      context: ../src/EducationPlatform.Service
+      dockerfile: Dockerfile
+    ports:
+      - "5006:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=education_platform;Uid=root;Pwd=education123;
+    depends_on:
+      mysql:
+        condition: service_healthy
+
   # ==================== INFRAESTRUCTURA ====================
   mysql:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: education123
-      MYSQL_DATABASE: education_platform
     ports:
       - "3307:3306"
     volumes:
