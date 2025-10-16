@@ -1,0 +1,66 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "assessmentContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1186",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Common\/Core\/Persistence",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Assessment.Service",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 1,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "evaluaciones",
+         "ObjectType": 0
+      },
+      {
+         "Name": "preguntas",
+         "ObjectType": 0
+      },
+      {
+         "Name": "resultados_evaluacion",
+         "ObjectType": 0
+      },
+      {
+         "Name": "tipos_evaluacion",
+         "ObjectType": 0
+      },
+      {
+         "Name": "tipos_pregunta",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

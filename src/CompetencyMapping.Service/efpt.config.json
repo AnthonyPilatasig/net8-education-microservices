@@ -1,0 +1,70 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "competency_mappingContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1186",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Common\/Core\/Persistence",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "CompetencyMapping.Service",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 1,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "brechas_aprendizaje",
+         "ObjectType": 0
+      },
+      {
+         "Name": "categorias_competencia",
+         "ObjectType": 0
+      },
+      {
+         "Name": "Competencias",
+         "ObjectType": 0
+      },
+      {
+         "Name": "estados_dominio",
+         "ObjectType": 0
+      },
+      {
+         "Name": "mapa_competencias_estudiante",
+         "ObjectType": 0
+      },
+      {
+         "Name": "niveles_prioridad",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}

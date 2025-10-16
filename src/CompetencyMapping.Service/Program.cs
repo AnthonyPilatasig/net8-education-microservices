@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // MySQL Configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<CompetencyDbContext>(options =>
+builder.Services.AddDbContext<competency_mappingContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
@@ -28,7 +28,7 @@ app.MapControllers();
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<CompetencyDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<competency_mappingContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 

@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // MySQL Configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<EducationDbContext>(options =>
+builder.Services.AddDbContext<education_platformContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
@@ -28,7 +28,7 @@ app.MapControllers();
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<EducationDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<education_platformContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 

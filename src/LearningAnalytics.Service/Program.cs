@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen();
 
 // MySQL Configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AnalyticsDbContext>(options =>
+builder.Services.AddDbContext<learning_analyticsContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
@@ -28,7 +28,7 @@ app.MapControllers();
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AnalyticsDbContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<learning_analyticsContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 
