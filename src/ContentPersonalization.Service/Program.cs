@@ -1,21 +1,21 @@
-using ContentPersonalization.Service.Common.Core.Persistence;
-using Microsoft.EntityFrameworkCore;
+using ContentPersonalization.Service.Application;
+using ContentPersonalization.Service.Infrastructure;
+using ContentPersonalization.Service.Infrastructure.Persistence;
+using ContentPersonalization.Service.Application.Commands;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
+// Layer Registrations
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// MySQL Configuration
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<content_personalizationContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,12 +23,29 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-app.MapControllers();
+
+// Minimal APIs
+var api = app.MapGroup("/api/v1/content-personalization");
+
+api.MapPost("/rutas-aprendizaje", async (
+    [FromBody] GenerarRutaAprendizajeCommand command, 
+    IMediator mediator) =>
+{
+    try
+    {
+        var result = await mediator.Send(command);
+        return Results.Ok(result);
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
+});
 
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<content_personalizationContext>();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ContentPersonalizationContext>();
     await dbContext.Database.EnsureCreatedAsync();
 }
 
