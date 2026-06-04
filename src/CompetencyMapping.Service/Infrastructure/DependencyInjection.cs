@@ -15,7 +15,7 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         
         services.AddDbContext<CompetencyMappingContext>(options =>
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+            options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 32))));
 
         services.AddScoped<IMapaCompetenciaEstudianteRepository, MapaCompetenciaEstudianteRepository>();
 

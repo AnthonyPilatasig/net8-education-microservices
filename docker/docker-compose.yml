@@ -2,8 +2,8 @@ services:
 # ==================== MICROSERVICIO LEANERNING ====================
   learning-analytics:
     build:
-      context: ../src/LearningAnalytics.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: LearningAnalytics.Service/Dockerfile
     ports:
       - "5001:8080"
     environment:
@@ -17,8 +17,8 @@ services:
 # ==================== MICROSERVICIO ADAPTATIVE ====================
   adaptive-engine:
     build:
-      context: ../src/AdaptiveEngine.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: AdaptiveEngine.Service/Dockerfile
     ports:
       - "5002:8080"
     environment:
@@ -32,8 +32,8 @@ services:
 # ==================== MICROSERVICIO CONTENT ====================
   content-personalization:
     build:
-      context: ../src/ContentPersonalization.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: ContentPersonalization.Service/Dockerfile
     ports:
       - "5003:8080"
     environment:
@@ -47,8 +47,8 @@ services:
 # ==================== MICROSERVICIO ASSESSMENT ====================
   assessment:
     build:
-      context: ../src/Assessment.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: Assessment.Service/Dockerfile
     ports:
       - "5004:8080"
     environment:
@@ -60,8 +60,8 @@ services:
 # ==================== MICROSERVICIO COMPETENCY ====================
   competency-mapping:
     build:
-      context: ../src/CompetencyMapping.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: CompetencyMapping.Service/Dockerfile
     ports:
       - "5005:8080"
     environment:
@@ -74,8 +74,8 @@ services:
 # ==================== MICROSERVICIO BASE(UNIVERSIDAD) ====================
   education-platform:
     build:
-      context: ../src/EducationPlatform.Service
-      dockerfile: Dockerfile
+      context: ../src
+      dockerfile: EducationPlataform.Service/Dockerfile
     ports:
       - "5006:8080"
     environment:

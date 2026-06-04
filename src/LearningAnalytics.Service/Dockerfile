@@ -4,9 +4,11 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["LearningAnalytics.Service.csproj", "."]
-RUN dotnet restore "LearningAnalytics.Service.csproj"
+COPY ["LearningAnalytics.Service/LearningAnalytics.Service.csproj", "LearningAnalytics.Service/"]
+COPY ["BuildingBlocks.IntegrationEvents/BuildingBlocks.IntegrationEvents.csproj", "BuildingBlocks.IntegrationEvents/"]
+RUN dotnet restore "LearningAnalytics.Service/LearningAnalytics.Service.csproj"
 COPY . .
+WORKDIR "/src/LearningAnalytics.Service"
 RUN dotnet build "LearningAnalytics.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish

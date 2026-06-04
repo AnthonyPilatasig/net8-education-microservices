@@ -56,11 +56,16 @@ Para llevar este proyecto a una etapa de "Producción Grado Enterprise", hemos d
 *   Implementación de CQRS con MediatR.
 *   Limpieza de EF Core Power Tools y migración a configuración por Fluent API.
 
-### ⏳ Fase 2: Comunicación Asíncrona (EN PROGRESO)
+### ✅ Fase 2: Comunicación Asíncrona (COMPLETADA)
 *Los microservicios no deben llamarse por HTTP de forma síncrona si no es necesario.*
 *   Implementación de un **Message Broker (RabbitMQ)**.
 *   Uso de **MassTransit** para publicar y suscribirse a Eventos de Integración (ej: `EstudianteInscritoEvent`, `EvaluacionCompletadaEvent`).
-*   Esto logrará un desacoplamiento definitivo y resiliencia ante caídas de red.
+*   Esto logra un desacoplamiento definitivo y resiliencia ante caídas de red.
+
+### ✅ Fase 3: Base de Datos y Semillas (COMPLETADA)
+*   Uso de migraciones Code-First de Entity Framework Core generadas para cada microservicio.
+*   Scripts SQL iniciales montados automáticamente en `docker-entrypoint-initdb.d/` para aprovisionar 6 bases de datos independientes.
+*   Inyección de datos semilla (Estudiantes, Cursos, Perfiles) para testeo inmediato.
 
 ### 📅 Fase 3: Gateway y Seguridad
 *   Implementación de **Ocelot API Gateway** o **YARP** como único punto de entrada para los clientes web/móviles.

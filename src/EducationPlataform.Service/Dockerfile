@@ -4,9 +4,11 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["EducationPlataform.Service.csproj", "."]
-RUN dotnet restore "EducationPlataform.Service.csproj"
+COPY ["EducationPlataform.Service/EducationPlataform.Service.csproj", "EducationPlataform.Service/"]
+COPY ["BuildingBlocks.IntegrationEvents/BuildingBlocks.IntegrationEvents.csproj", "BuildingBlocks.IntegrationEvents/"]
+RUN dotnet restore "EducationPlataform.Service/EducationPlataform.Service.csproj"
 COPY . .
+WORKDIR "/src/EducationPlataform.Service"
 RUN dotnet build "EducationPlataform.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
