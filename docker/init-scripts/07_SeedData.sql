@@ -4,7 +4,7 @@ INSERT IGNORE INTO estudiantes (idEstudiante, codigo_estudiante, primer_nombre, 
 ('EST-001', 'COD-001', 'Juan', 'Carlos', 'Perez', 'Gomez', 'juan.perez@example.com', NOW(), 1),
 ('EST-002', 'COD-002', 'Maria', 'Jose', 'Lopez', 'Diaz', 'maria.lopez@example.com', NOW(), 1);
 
-INSERT IGNORE INTO usuario_estudiante (idEstudiante, contraseña, fecha_creacion, es_activo) VALUES
+INSERT IGNORE INTO usuario_estudiante (idEstudiante, contrasena, fecha_creacion, es_activo) VALUES
 ('EST-001', 'hashed_pwd_123', NOW(), 1),
 ('EST-002', 'hashed_pwd_456', NOW(), 1);
 

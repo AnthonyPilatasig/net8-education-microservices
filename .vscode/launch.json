@@ -1,0 +1,122 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch ApiGateway",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build ApiGateway",
+            "program": "${workspaceFolder}/src/ApiGateway/bin/Debug/net8.0/ApiGateway.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/ApiGateway",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5052"
+            }
+        },
+        {
+            "name": "Launch EducationPlataform.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build EducationPlataform.Service",
+            "program": "${workspaceFolder}/src/EducationPlataform.Service/bin/Debug/net8.0/EducationPlataform.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/EducationPlataform.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5285"
+            }
+        },
+        {
+            "name": "Launch LearningAnalytics.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build LearningAnalytics.Service",
+            "program": "${workspaceFolder}/src/LearningAnalytics.Service/bin/Debug/net8.0/LearningAnalytics.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/LearningAnalytics.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5177"
+            }
+        },
+        {
+            "name": "Launch ContentPersonalization.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build ContentPersonalization.Service",
+            "program": "${workspaceFolder}/src/ContentPersonalization.Service/bin/Debug/net8.0/ContentPersonalization.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/ContentPersonalization.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5167"
+            }
+        },
+        {
+            "name": "Launch Assessment.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build Assessment.Service",
+            "program": "${workspaceFolder}/src/Assessment.Service/bin/Debug/net8.0/Assessment.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/Assessment.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5258"
+            }
+        },
+        {
+            "name": "Launch AdaptiveEngine.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build AdaptiveEngine.Service",
+            "program": "${workspaceFolder}/src/AdaptiveEngine.Service/bin/Debug/net8.0/AdaptiveEngine.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/AdaptiveEngine.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5164"
+            }
+        },
+        {
+            "name": "Launch CompetencyMapping.Service",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build CompetencyMapping.Service",
+            "program": "${workspaceFolder}/src/CompetencyMapping.Service/bin/Debug/net8.0/CompetencyMapping.Service.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/CompetencyMapping.Service",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5281"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "🚀 Arrancar Todo (API Gateway + 6 Microservicios)",
+            "configurations": [
+                "Launch ApiGateway",
+                "Launch EducationPlataform.Service",
+                "Launch LearningAnalytics.Service",
+                "Launch ContentPersonalization.Service",
+                "Launch Assessment.Service",
+                "Launch AdaptiveEngine.Service",
+                "Launch CompetencyMapping.Service"
+            ],
+            "stopAll": true
+        }
+    ]
+}

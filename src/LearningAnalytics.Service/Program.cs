@@ -2,6 +2,7 @@ using LearningAnalytics.Service.Application;
 using LearningAnalytics.Service.Infrastructure;
 using LearningAnalytics.Service.Infrastructure.Persistence;
 using LearningAnalytics.Service.Application.Commands;
+using LearningAnalytics.Service.Presentation.Endpoints;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,25 +23,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
 
-// Minimal APIs
-var api = app.MapGroup("/api/v1/learning-analytics");
 
-api.MapPost("/eventos", async (
-    [FromBody] RegistrarEventoAprendizajeCommand command, 
-    IMediator mediator) =>
-{
-    try
-    {
-        var result = await mediator.Send(command);
-        return Results.Ok(result);
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
+// Minimal APIs organizadas por dominio
+app.MapEventosEndpoints();
+app.MapMetricasEndpoints();
 
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())

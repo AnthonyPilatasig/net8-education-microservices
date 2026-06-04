@@ -1,6 +1,0 @@
-@ContentPersonalization.Service_HostAddress = http://localhost:5167
-
-GET {{ContentPersonalization.Service_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

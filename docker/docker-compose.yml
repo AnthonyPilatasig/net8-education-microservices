@@ -1,4 +1,21 @@
 services:
+# ==================== API GATEWAY ====================
+  api-gateway:
+    build:
+      context: ../src
+      dockerfile: ApiGateway/Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - education-platform
+      - learning-analytics
+      - content-personalization
+      - assessment
+      - adaptive-engine
+      - competency-mapping
+
 # ==================== MICROSERVICIO LEANERNING ====================
   learning-analytics:
     build:

@@ -2,6 +2,8 @@ using EducationPlataform.Service.Application;
 using EducationPlataform.Service.Infrastructure;
 using EducationPlataform.Service.Infrastructure.Persistence;
 using EducationPlataform.Service.Application.Commands;
+using EducationPlataform.Service.Application.Queries;
+using EducationPlataform.Service.Presentation.Endpoints;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,25 +24,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
 
-// Minimal APIs
-var api = app.MapGroup("/api/v1/education-platform");
 
-api.MapPost("/inscripciones", async (
-    [FromBody] InscribirEstudianteCommand command, 
-    IMediator mediator) =>
-{
-    try
-    {
-        var result = await mediator.Send(command);
-        return Results.Ok(result);
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
+// Minimal APIs organizadas por dominio
+app.MapEstudianteEndpoints();
+app.MapCursoEndpoints();
+app.MapInscripcionEndpoints();
 
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())

@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
+
 
 // Minimal APIs (Presentation Layer delegating to Application Layer)
 var api = app.MapGroup("/api/v1/adaptive-engine");

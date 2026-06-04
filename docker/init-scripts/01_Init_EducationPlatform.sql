@@ -51,7 +51,7 @@ CREATE TABLE `inscripciones` (
 
 CREATE TABLE `usuario_estudiante` (
     `idEstudiante` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-    `contraseña` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+    `contrasena` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
     `fecha_creacion` timestamp NOT NULL,
     `es_activo` tinyint(1) NOT NULL,
     CONSTRAINT `PRIMARY` PRIMARY KEY (`idEstudiante`),

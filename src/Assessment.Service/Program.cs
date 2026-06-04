@@ -2,6 +2,7 @@ using Assessment.Service.Application;
 using Assessment.Service.Infrastructure;
 using Assessment.Service.Infrastructure.Persistence;
 using Assessment.Service.Application.Commands;
+using Assessment.Service.Presentation.Endpoints;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,25 +23,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
 
-// Minimal APIs
-var api = app.MapGroup("/api/v1/assessment");
 
-api.MapPost("/resultados", async (
-    [FromBody] RegistrarResultadoEvaluacionCommand command, 
-    IMediator mediator) =>
-{
-    try
-    {
-        var result = await mediator.Send(command);
-        return Results.Ok(result);
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
+// Minimal APIs (Capa de Presentación)
+app.MapEvaluacionEndpoints();
+app.MapResultadoEndpoints();
 
 // Ensure database is created (para desarrollo)
 using (var scope = app.Services.CreateScope())

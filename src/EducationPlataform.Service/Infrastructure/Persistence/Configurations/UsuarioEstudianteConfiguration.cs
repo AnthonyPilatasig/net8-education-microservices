@@ -19,7 +19,7 @@ public class UsuarioEstudianteConfiguration : IEntityTypeConfiguration<UsuarioEs
         builder.Property(e => e.Contrasena)
             .IsRequired()
             .HasMaxLength(50)
-            .HasColumnName("contraseña");
+            .HasColumnName("contrasena");
             
         builder.Property(e => e.FechaCreacion)
             .HasColumnType("timestamp")

@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseAuthorization();
+
 
 // Minimal APIs
 var api = app.MapGroup("/api/v1/content-personalization");
